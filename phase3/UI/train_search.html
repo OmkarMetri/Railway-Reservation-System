@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>IRCTC Next Generation eTicketing System</title>
+  <base href="/nget/">  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="theme-color" content="#1976d2">
+<link rel="stylesheet" href="/nget/styles.79d234b0506dc5e9f242.css"></head>
+<body>
+  <style type="text/css">
+    .loading_div {
+      background-image: url("railway.jpg");
+      background-repeat: no-repeat;
+      height: 100px;
+      width:  100px;
+      background-size: 100px 100px;
+    }
+    #outer {
+      padding-top: 20vh;
+      width: 100%;
+      text-align: center;
+    }
+    .grecaptcha-badge {
+      display: none;
+    }
+    #inner {
+      display: inline-block;
+    }
+    .fab {
+      position: fixed;
+      right: 225px;
+      bottom: 0px;
+      z-index: 3;
+      opacity:0;
+      transition:opacity 4s linear;
+      color: #FFFFFF;
+    }
+    .fab:hover .fab-buttons {
+      opacity: 1;
+      visibility: visible;
+    }
+    .fab-action-button {
+      position: absolute;
+      bottom: 0;
+      display: block;
+      width: 220px;
+      height: 55px;
+      cursor: pointer;
+      background-color: #2e3192;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    }
+    .fab-action-button {
+      position: absolute;
+      color: #FFFFFF;
+    }
+    sup {
+      top: -1.5em;
+    }
+  </style>
+
+  <app-root>
+    <div id="outer">
+        <div id="inner">
+          <div class="loading_div"></div>
+        </div>
+    </div>
+  </app-root>
+  <div id="disha"></div>
+  <div class="fab" id="fab" style="display: none;">
+    <span class="fab-action-button">
+      <div id="loadDisha">
+        <img onclick="loadChatBot()" style="width: 50px;" src="https://s3.ap-south-1.amazonaws.com/chatbot-res/irctc/res/img/AskDishaTriColorNew.png">
+        <span onclick="loadChatBot()">Need Help? Ask Disha</span>
+        <sup><span onclick="removeChatBot()"><b>X</b></span></sup>
+      </div>
+    </span>
+  </div>
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r;
+      i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+      a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-49954655-1', 'auto', {'sampleRate': '2.0'});
+    ga('send', 'pageview');
+
+    var fab = document.getElementById("fab");
+    var d = new Date();
+    var m = d.getHours() * 60 + d.getMinutes();
+    chatBot = !((m > 585 && m <= 620) || (m > 645 && m <= 680)) && !('/nget/redirect' == window.location.pathname || '/nget/booking-confirm' == window.location.pathname);
+    if(chatBot){
+      setTimeout(function(){
+        fab.style.display = "block";
+        setTimeout(function(){
+          fab.style.opacity = 1;
+        }, 1000);
+      }, 5000);
+    }
+    function loadChatBot() {
+      addRow();
+      var keyJs ="https://assistant.corover.mobi/irctc/demo/res/chbtwidget.js",
+      fileJs=document.createElement('script');
+      fileJs.type = "text/javascript";
+      fileJs.src = keyJs;
+      fileJs.async = true;
+      document.getElementsByTagName("body")[0].appendChild(fileJs);
+      fab.remove();
+    }
+
+    function removeChatBot() {
+      fab.remove();
+    }
+
+    function addRow() {
+      var div = document.createElement('div');
+      div.innerHTML =
+        '<div id="chatbot-service">\
+          <div id="cb-wrap"><div class="ch-title"> <a id="closeme"></a></div>\
+          <iframe id="chatbotwindow" class="chatbotframe" src="https://assistant.corover.mobi/irctc/" width="100%" height="100%" frameborder="0"></iframe></div>\
+          <div id="chtbticonWrap">\
+            <div style="text-align: center;"><a class="btnStyle" id="chatbotbtn">&nbsp;</a></div>\
+            <div class="adwrap" id="adwrap"> <iframe id="chatbotadwindow" class="adfrm" src="https://assistant.corover.mobi/irctc/coroversdsm/" width="100%" height="100%" frameborder="0"></iframe> </div>\
+          </div>\
+        </div>';
+      document.getElementById('disha').appendChild(div);
+    }
+  </script>
+  <script> window._izq = window._izq || []; window._izq.push(["init"]); </script>
+  <script async='async' src="https://cdn.izooto.com/scripts/9f884804099c970cf4712b990fd34a7ecf2d160e.js"></script>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
+<script type="text/javascript" src="/nget/runtime.efa47f380d3939460da2.js"></script><script type="text/javascript" src="/nget/polyfills.23b58980b2e026efb81d.js"></script><script type="text/javascript" src="/nget/main.72f801b70e3675b0de02.js"></script></body>
+</html>

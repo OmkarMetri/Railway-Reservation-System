@@ -1,0 +1,62 @@
+body{
+	margin: 0;
+	padding:0;
+	font-family:sans-serif;
+	background-image:url("russ-ward-366146-unsplash.jpg");
+	background-size: 1350px 1250px;
+}
+
+.container{
+	position:relative;
+	width:1000px;
+	height:200px;
+	margin:240px auto;
+	background: none;
+	top:-250px;
+	margin-left:300px;
+}
+.container .box{
+	position:relative;
+	width: 300px;
+	height: 300px;
+	background: #fff;
+	float: left;
+	margin: 15px;
+	box-sizing
+	overflow:hidden;
+	border-radius: 10px;
+}
+
+.container .box .icon{
+	position:absolute;
+	top : 0;
+	left : 0;
+	width : 100%;
+	height : 100%;
+	background: black;
+	transition : 0.5s;
+	z-index : 1;
+}
+
+.container .box:hover .icon{
+	top : 20px;
+	right : 180px;
+	width: 80px;
+	height : 80px;
+	border-radius:50%;
+}
+
+.container .box .icon .fa
+{
+	position:absolute;
+	top: 50%;
+	left: 50%;
+	transform : translate(-50%,-50%);
+	font-size: 100px;
+	transition : 0.5s;
+	color: #fff;
+}
+
+.container .box:hover .icon .fa{
+	font-size: 100px;
+}

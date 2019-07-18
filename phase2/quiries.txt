@@ -1,0 +1,77 @@
+1) select passenger_name from passenger where train_id in (select train_id from train where train_name = 'Mys Ru Exp');
+ passenger_name
+----------------
+ Manu
+ Soma
+ Manu J
+ Soma M
+(4 rows)
+
+2) select * from passenger where train_id = 52102;
+    pnr     | seat_number | passenger_name | age | gender | train_id
+------------+-------------+----------------+-----+--------+----------
+ 8956478245 |           2 | Kiran          |  18 | M      |    52102
+ 8956478232 |          20 | Kiran H        |  18 | M      |    52102
+(2 rows)
+
+3)select train_id from train where source_id = 'SBC';
+ train_id
+----------
+     1035
+    56912
+(2 rows)
+
+4)select arrival_time from route where train_id=1035 intersect select arrival_time from route where station_id='SBC';
+ arrival_time
+--------------
+ 08:34:06
+(1 row)
+
+5)select passenger_name from passenger where pnr in (select pnr from passenger_ticket where reservation_status='Canceled');
+ passenger_name
+----------------
+ Komala
+ Vishwas G
+ Komala O
+ Vishwas
+ Komala Y
+ Rudresh C
+ Rudresh
+(7 rows)
+
+6)select train_id from train_class order by fare_class1;
+ train_id
+----------
+    52102
+     1035
+    35645
+    98451
+    89564
+    56912
+    45230
+    78952
+    54689
+    65356
+(10 rows)
+
+7) select train_name from train where source_station='Belgaum' and destination_station='Kumta';
+   train_name
+----------------
+ Blgm Kumta Exp
+(1 row)
+
+8) select train_id from route where source_distance=(select max(source_distance) from route);
+ train_id
+----------
+    54689
+(1 row)
+
+9)select * from passenger where train_id in (select train_id from passenger_ticket where train_id=89564 and reservation_status='Confirmed');
+    pnr     | seat_number | passenger_name | age | gender | train_id
+------------+-------------+----------------+-----+--------+----------
+ 8954578213 |           3 | Sanu           |  10 | F      |    89564
+ 8956478365 |           1 | Madhu          |  17 | F      |    89564
+ 8954578229 |          13 | Sanu E         |  10 | F      |    89564
+ 8956478334 |          10 | Madhu J        |  17 | F      |    89564
+ 8956478344 |           5 | Madhu T        |  17 | F      |    89564
+(5 rows)

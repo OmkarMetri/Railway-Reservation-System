@@ -1,0 +1,17 @@
+1)Get list of trains available on a particular date between a pair of stations
+
+Select Route.Train_ID, 
+Train.Train_name ,Train_status.Available_Date FROM Route INNER JOIN Train ON Route.Train_ID=Train
+-ID.Train_ID INNER JOIN 
+Train_status ON Train.Train_ID=Train_status.Train_ID WHERE (Route.Station_ID IN Train_ID WHERE (Source.Stop_number - Destination.Stop_number < 0)  
+AND (Station_ID = Destination_ID))) AND (Train_status.Available_Date = Available_Date);
+
+
+2)SELECT Train_name,Staion_name,Available_Date FROM TRAIN,STATION,Train_status WHERE  Available_Date='2019-03-24'AND Source_id=Station_id;
+
+3)SELECT Source_station,Destination_station FROM TRAIN;
+ 
+
+4)SELECT  MIN(Seat_id) sid FROM Train_detail WHERE Train_name=tname and reseved='n';
+
+5)SELECT Booked_seats,Available_seats,Waiting_seats Train_name FROM Train_status,TRAIN WHERE Train_ID="01035" AND Train_ID=Train_id;
